@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 
 var global;
 class SimpleTable extends Component {
-  static   data = [];
+  static  data = [];
 
   constructor(props) {
     super(props);
@@ -82,7 +82,6 @@ class SimpleTable extends Component {
   }
 
   render() {
-
     return (
         <div>
           <h1>Recharts Grafic</h1>
@@ -161,7 +160,6 @@ class SimpleTable extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     profile: state.profile,
     fetching: state.fetching

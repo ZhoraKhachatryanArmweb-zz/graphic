@@ -5,9 +5,7 @@ class ProfileMenu extends Component {
   render() {
     return (
         <div>
-          {/*<div>dd </div>*/}
           <SimpleTable/>
-          {/*<div>dd </div>*/}
         </div>
     );
   }

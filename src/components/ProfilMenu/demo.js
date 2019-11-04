@@ -20,8 +20,6 @@ function createData(Id,firstname, lastname,phone,email,product,time,isRemember) 
   return {Id,firstname, lastname,phone,email,product,time,isRemember};
 }
 
-
-
 class SimpleTable extends Component {
   static data = [];
   rows = [];
@@ -43,7 +41,6 @@ class SimpleTable extends Component {
   }
   checking(event){
      this.setState({ren:true});
-     console.log(event.target.checked,"value");
      if(event.target.checked){
        this.props.changeRemember(event.target.id);
      }else{
@@ -52,7 +49,6 @@ class SimpleTable extends Component {
     this.setState({ren:false});
   }
   componentDidMount() {
-
     switch(window.location.pathname){
       case "/reminders":
         this.redux_call(this.props.getProfileReminders());
@@ -63,9 +59,8 @@ class SimpleTable extends Component {
       default:
         break;
     }
-
-
   }
+
   redux_call(a){
      a.then(() => {
        if (this.props.profile.length) {
@@ -82,7 +77,6 @@ class SimpleTable extends Component {
                SimpleTable.data[i]['time'],
                SimpleTable.data[i]['isRemember'].toString(),
            ))
-
          }
 
          const {Id,firstname, lastname, phone, email,product,time,isRemember} = this.props.profile[0];
@@ -94,10 +88,8 @@ class SimpleTable extends Component {
   }
 
   render() {
-
     return (
         <Paper >
-
           <Table >
             <TableHead>
               <TableRow>
@@ -108,14 +100,12 @@ class SimpleTable extends Component {
                 <TableCell align="right">Email</TableCell>
                 <TableCell align="right">Product</TableCell>
                 <TableCell align="right">Time</TableCell>
-
                 <TableCell align="right">Remember</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {this.rows.map(row => (
                   <TableRow key={row.Id}>
-
                     <TableCell align="right">{row.Id}</TableCell>
                     <TableCell align="right">{row.firstname}</TableCell>
                     <TableCell align="right">{row.lastname}</TableCell>
@@ -123,7 +113,6 @@ class SimpleTable extends Component {
                     <TableCell align="right">{row.email}</TableCell>
                     <TableCell align="right">{row.product}</TableCell>
                     <TableCell align="right">{row.time}</TableCell>
-
                     <TableCell align="right">
                       <Link to="/reminders" className="nav-link">
                       <input id={row.Id}
@@ -134,20 +123,16 @@ class SimpleTable extends Component {
                       />
                     </Link>
                     </TableCell>
-
                   </TableRow>
               ))}
             </TableBody>
           </Table>
-
         </Paper>
     );
   }
-
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     profile: state.profile,
     fetching: state.fetching
@@ -158,8 +143,6 @@ const mapDispatchToProps = dispatch => {
   return {
     getProfile: () => dispatch(fetchProfile()),
     getProfileReminders: () => dispatch(fetchProfileReminders()),
-    saveProfile: data => dispatch(postProfile(data)),
-    updateProfile: data => dispatch(profileUpdate(data)),
     changeRemember:id => dispatch(changeRemember(id)),
     changeRememberNot:id => dispatch(changeRememberNot(id))
   };
