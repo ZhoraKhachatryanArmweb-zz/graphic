@@ -6,7 +6,7 @@
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
     "antd": "^3.11.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "form-data-to-object": "^0.2.0",
     "material-ui-form": "^1.0.0-alpha.26",
     "react": "^16.8.6",
